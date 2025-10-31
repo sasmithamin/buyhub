@@ -11,3 +11,7 @@ logs*
 *.logs
 
 Thumbs.db
+
+dist/
+build/
+.cache/
