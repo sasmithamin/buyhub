@@ -14,4 +14,28 @@ router.get("/",  async (req, res) => {
   }
 });
 
+router.post("/", protect, async (req, res) =>{
+  const { name, image, brand, category, description, price, countInStock } = req.body;
+  
+  try {
+    const product = new Product({
+      user: req.user._id,
+      name,
+      image,
+      brand,
+      category,
+      description,
+      price,
+      countInStock,
+    });
+
+    const createdProduct = await product.save();
+    res.status(201).json(createdProduct);
+
+  } catch (error) {
+    console.error(" Adding products error ");
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
 export default router;
