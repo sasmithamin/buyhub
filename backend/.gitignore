@@ -15,3 +15,7 @@ Thumbs.db
 dist/
 build/
 .cache/
+
+.vscode/
+.idea/
+*.swp
